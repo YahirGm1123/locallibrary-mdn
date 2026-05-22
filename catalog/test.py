@@ -4,7 +4,6 @@ from catalog.models import Author
 class AuthorModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        # Configuramos un autor de prueba para usarlo en todas las funciones
         Author.objects.create(first_name='Bob', last_name='Big')
 
     def test_first_name_label(self):
@@ -29,5 +28,4 @@ class AuthorModelTest(TestCase):
 
     def test_get_absolute_url(self):
         author = Author.objects.get(id=1)
-        # Esto fallará si la URL no está bien configurada
         self.assertEqual(author.get_absolute_url(), '/catalog/author/1')
