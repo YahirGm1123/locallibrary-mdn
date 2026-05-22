@@ -12,7 +12,6 @@ urlpatterns = [
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-# NUEVO: Añade las URLs de autenticación del sitio (para login, logout, manejo de contraseñas)
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
