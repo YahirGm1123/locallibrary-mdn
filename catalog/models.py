@@ -52,7 +52,7 @@ class BookInstance(models.Model):
 
     class Meta:
         ordering = ['due_back']
-        # NUEVO: Declaramos el permiso personalizado para los bibliotecarios
+        
         permissions = (("can_mark_returned", "Set book as returned"),)
 
     @property
