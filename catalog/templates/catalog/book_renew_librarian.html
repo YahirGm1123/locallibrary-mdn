@@ -1,0 +1,16 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+  <h1>Renovar copia de: {{ book_instance.book.title }}</h1>
+  <p><strong>Prestatario:</strong> {{ book_instance.borrower }}</p>
+  <p class="{% if book_instance.is_overdue %}text-danger{% endif %}"><strong>Fecha actual de vencimiento:</strong> {{ book_instance.due_back }}</p>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Renovar libro">
+  </form>
+{% endblock %}

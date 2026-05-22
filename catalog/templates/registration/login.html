@@ -1,0 +1,37 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+  <h1>Iniciar Sesión</h1>
+
+  {% if form.errors %}
+    <p style="color: red;">Tu nombre de usuario y contraseña no coinciden. Por favor, inténtalo de nuevo.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Tu cuenta no tiene acceso a esta página. Para continuar, por favor inicia sesión con una cuenta que tenga los permisos necesarios.</p>
+    {% else %}
+      <p>Por favor, inicia sesión para ver esta página.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Iniciar sesión">
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+  {# Enlace para restablecer la contraseña (se usa más adelante en la guía) #}
+  <p style="margin-top: 15px;"><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+{% endblock %}

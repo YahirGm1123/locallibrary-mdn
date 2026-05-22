@@ -1,0 +1,14 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+  <h1>Formulario de Autor</h1>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Guardar">
+  </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+  <h1>Eliminar Autor: {{ author }}</h1>
+  
+  <p>¿Estás completamente seguro de que deseas eliminar a este autor de la base de datos?</p>
+  
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Sí, eliminar.">
+  </form>
+{% endblock %}

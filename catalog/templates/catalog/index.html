@@ -1,0 +1,17 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+  <h1>Inicio de LocalLibrary</h1>
+  <p>Bienvenido a LocalLibrary, un sitio web desarrollado en Django para la guía de MDN.</p>
+
+  <h2>Contenido dinámico</h2>
+  <p>La biblioteca tiene los siguientes conteos de registros:</p>
+  <ul>
+    <li><strong>Libros:</strong> {{ num_books }}</li>
+    <li><strong>Copias:</strong> {{ num_instances }}</li>
+    <li><strong>Copias disponibles:</strong> {{ num_instances_available }}</li>
+    <li><strong>Autores:</strong> {{ num_authors }}</li>
+  </ul>
+
+  <p>Has visitado esta página <strong>{{ num_visits }}</strong> vez{% if num_visits != 1 %}es{% endif %}.</p>
+{% endblock %}
